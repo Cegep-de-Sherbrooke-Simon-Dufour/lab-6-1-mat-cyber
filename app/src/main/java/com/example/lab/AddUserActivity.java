@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.EventListener;
+import dagger.hilt.android.AndroidEntryPoint;
 
-public class add_user extends AppCompatActivity {
+@AndroidEntryPoint
+public class AddUserActivity extends AppCompatActivity {
 
     TextView name, email;
 
