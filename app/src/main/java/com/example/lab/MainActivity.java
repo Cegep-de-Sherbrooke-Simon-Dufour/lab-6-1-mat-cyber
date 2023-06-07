@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void returnValue(User object) {
                 viewModel.removeUser(object);
-                //userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
             }
         });
         recyclerView.setAdapter(userAdapter);
@@ -50,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 userAdapter.submitList(new ArrayList<User>(users));
             }
         });
-
-        //userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
-
-
 
         ActivityResultLauncher<Intent> getUser = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),

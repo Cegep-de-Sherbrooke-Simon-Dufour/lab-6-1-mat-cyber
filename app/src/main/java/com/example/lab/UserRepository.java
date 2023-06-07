@@ -35,7 +35,4 @@ public class UserRepository {
         return usersLiveData;
     }
 
-    //public List<User> getUsers(){
-    //    return users;
-    //}
 }

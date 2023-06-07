@@ -24,11 +24,7 @@ public class UserListViewModel extends ViewModel {
     public void removeUser(User user){
         userRepository.deleteUser(user);
     }
-    /*
-    public List<User> getUsers(){
-        return userRepository.getUsers();
-    }
-    */
+
     public LiveData<List<User>> getUsers(){
         return userRepository.getUsersLiveData();
     }
