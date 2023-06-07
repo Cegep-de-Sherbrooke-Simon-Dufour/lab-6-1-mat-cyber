@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -36,13 +38,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void returnValue(User object) {
                 viewModel.removeUser(object);
-                userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
+                //userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
             }
         });
         recyclerView.setAdapter(userAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
+        viewModel.getUsers().observe(this, new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                userAdapter.submitList(new ArrayList<User>(users));
+            }
+        });
+
+        //userAdapter.submitList(new ArrayList<User>(viewModel.getUsers()));
 
 
 
