@@ -1,4 +1,4 @@
-package com.example.lab;
+package com.example.lab.model;
 
 public class User {
 

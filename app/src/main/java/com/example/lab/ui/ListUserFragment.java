@@ -1,4 +1,4 @@
-package com.example.lab;
+package com.example.lab.ui;
 
 import android.os.Bundle;
 
@@ -14,9 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.lab.R;
+import com.example.lab.RecyclerCallback;
+import com.example.lab.model.User;
 
 import java.util.ArrayList;
 import java.util.List;

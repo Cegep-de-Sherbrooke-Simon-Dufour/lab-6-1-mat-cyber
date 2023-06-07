@@ -1,7 +1,10 @@
-package com.example.lab;
+package com.example.lab.ui;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.lab.model.User;
+import com.example.lab.model.UserRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.lab;
+package com.example.lab.ui;
 
 import android.os.Bundle;
 
@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.lab.R;
+import com.example.lab.model.User;
 
 public class AddUserFragment extends Fragment {
 

@@ -1,7 +1,9 @@
-package com.example.lab;
+package com.example.lab.model;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.lab.model.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;

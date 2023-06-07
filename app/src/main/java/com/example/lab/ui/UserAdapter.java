@@ -1,16 +1,17 @@
-package com.example.lab;
+package com.example.lab.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.example.lab.R;
+import com.example.lab.RecyclerCallback;
+import com.example.lab.model.User;
 
 public class UserAdapter extends ListAdapter<User, UserAdapter.UserViewHolder> {
 
