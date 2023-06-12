@@ -1,7 +1,14 @@
 package com.example.lab.model;
 
-public class User {
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "users")
+public class User {
+    @PrimaryKey(autoGenerate = true)
+    private int uid;
+    @ColumnInfo(name = "full_name")
     private String name;
     private String email;
 
@@ -16,5 +23,13 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 }
