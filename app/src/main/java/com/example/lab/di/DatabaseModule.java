@@ -1,8 +1,10 @@
-package com.example.lab.model;
+package com.example.lab.di;
 
 import android.content.Context;
 
 import androidx.room.Room;
+
+import com.example.lab.model.AppDatabase;
 
 import dagger.Module;
 import dagger.Provides;
