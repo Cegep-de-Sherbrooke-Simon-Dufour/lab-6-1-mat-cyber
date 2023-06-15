@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +20,9 @@ import android.widget.TextView;
 import com.example.lab.R;
 import com.example.lab.RecyclerCallback;
 import com.example.lab.model.RentalItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RentalItemListFragment extends Fragment {
 
@@ -71,5 +75,12 @@ public class RentalItemListFragment extends Fragment {
 
         recyclerView.setAdapter(rentalItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        rentalListViewModel.getRentalItems(userId).observe(getViewLifecycleOwner(), new Observer<List<RentalItem>>() {
+            @Override
+            public void onChanged(List<RentalItem> rentalItems) {
+                rentalItemAdapter.submitList(new ArrayList<RentalItem>(rentalItems));
+            }
+        });
     }
 }
