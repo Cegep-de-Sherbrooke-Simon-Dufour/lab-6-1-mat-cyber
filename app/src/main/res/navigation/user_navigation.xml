@@ -30,7 +30,13 @@
         android:label="fragment_rental_item_list"
         tools:layout="@layout/fragment_rental_item_list" >
         <argument
-            android:name="user_id"
+            android:name="userId"
             app:argType="integer" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="userEmail"
+            app:argType="string" />
     </fragment>
 </navigation>

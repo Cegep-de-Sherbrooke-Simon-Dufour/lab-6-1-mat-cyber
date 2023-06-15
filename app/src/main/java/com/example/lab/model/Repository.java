@@ -31,16 +31,26 @@ public class Repository {
         });
     }
 
+    public void deleteUserById(int userId){
+        Executors.newSingleThreadExecutor().execute(() -> {
+            userDao.deleteByUserId(userId);
+        });
+    }
+
     public LiveData<List<User>> getUsersLiveData(){
         return userDao.getUsers();
     }
 
     public void addRentalItem(RentalItem rentalItem){
-        rentalItemDao.insertAll(rentalItem);
+        Executors.newSingleThreadExecutor().execute(() -> {
+            rentalItemDao.insertAll(rentalItem);
+        });
     }
 
     public void deleteRentalItem(RentalItem rentalItem){
-        rentalItemDao.delete(rentalItem);
+        Executors.newSingleThreadExecutor().execute(() -> {
+            rentalItemDao.delete(rentalItem);
+        });
     }
 
     public LiveData<List<RentalItem>> getRentalItemsLiveData(int userId){

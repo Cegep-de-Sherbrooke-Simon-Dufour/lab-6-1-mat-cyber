@@ -28,6 +28,10 @@ public class UserListViewModel extends ViewModel {
         repository.deleteUser(user);
     }
 
+    public void removeUserById(int userId){
+        repository.deleteUserById(userId);
+    }
+
     public LiveData<List<User>> getUsers(){
         return repository.getUsersLiveData();
     }
