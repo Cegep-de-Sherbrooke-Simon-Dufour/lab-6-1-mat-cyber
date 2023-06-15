@@ -1,12 +1,7 @@
 package com.example.lab.model;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import com.example.lab.model.User;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executors;
 
@@ -14,12 +9,14 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class UserRepository {
+public class Repository {
 
     private final UserDao userDao;
+    private final RentalItemDao rentalItemDao;
     @Inject
-    public UserRepository(AppDatabase database){
+    public Repository(AppDatabase database){
         userDao = database.getUserDao();
+        rentalItemDao = database.getRentalItemDao();
     }
 
     public void addUser(User user){
@@ -38,4 +35,15 @@ public class UserRepository {
         return userDao.getUsers();
     }
 
+    public void addRentalItem(RentalItem rentalItem){
+        rentalItemDao.insertAll(rentalItem);
+    }
+
+    public void deleteRentalItem(RentalItem rentalItem){
+        rentalItemDao.delete(rentalItem);
+    }
+
+    public LiveData<List<RentalItem>> getRentalItemsLiveData(int userId){
+        return rentalItemDao.getRentals(userId);
+    }
 }

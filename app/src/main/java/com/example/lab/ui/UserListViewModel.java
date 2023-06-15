@@ -3,8 +3,8 @@ package com.example.lab.ui;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.lab.model.Repository;
 import com.example.lab.model.User;
-import com.example.lab.model.UserRepository;
 
 import java.util.List;
 
@@ -14,21 +14,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
 public class UserListViewModel extends ViewModel {
-    UserRepository userRepository;
+    Repository repository;
     @Inject
-    public UserListViewModel(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public UserListViewModel(Repository repository){
+        this.repository = repository;
     }
 
     public void addUser(User user){
-        userRepository.addUser(user);
+        repository.addUser(user);
     }
 
     public void removeUser(User user){
-        userRepository.deleteUser(user);
+        repository.deleteUser(user);
     }
 
     public LiveData<List<User>> getUsers(){
-        return userRepository.getUsersLiveData();
+        return repository.getUsersLiveData();
     }
 }
