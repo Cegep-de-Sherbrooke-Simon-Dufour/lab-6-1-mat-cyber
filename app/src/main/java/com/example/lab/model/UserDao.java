@@ -19,4 +19,7 @@ public interface UserDao {
 
     @Delete
     void delete(User user);
+
+    @Query("DELETE FROM users WHERE uid = :userId")
+    void deleteByUserId(int userId);
 }
