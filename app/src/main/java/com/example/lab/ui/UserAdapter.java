@@ -1,8 +1,10 @@
 package com.example.lab.ui;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.DiffUtil;
@@ -25,7 +27,9 @@ public class UserAdapter extends ListAdapter<User, UserAdapter.UserViewHolder> {
 
             @Override
             public boolean areContentsTheSame(User oldUser, User newUser) {
-                return oldUser.getName().equals(newUser.getName()) && oldUser.getEmail().equals(newUser.getEmail());
+                return oldUser.getName().equals(newUser.getName())
+                        && oldUser.getEmail().equals(newUser.getEmail())
+                        && oldUser.getUri().equals(newUser.getUri());
             }
         });
         this.callback = callback;
@@ -43,12 +47,14 @@ public class UserAdapter extends ListAdapter<User, UserAdapter.UserViewHolder> {
     public class UserViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView name, email;
+        private final ImageView image;
         private User user;
 
         public UserViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.user_name);
             email = itemView.findViewById(R.id.user_email);
+            image = itemView.findViewById(R.id.user_image);
             itemView.setOnClickListener(view -> { callback.returnValue(user); });
         }
 
@@ -56,6 +62,7 @@ public class UserAdapter extends ListAdapter<User, UserAdapter.UserViewHolder> {
             this.user = user;
             this.name.setText(user.getName());
             this.email.setText(user.getEmail());
+            if(user.getUri() != null) image.setImageURI(Uri.parse(user.getUri()));
         }
     }
 }
