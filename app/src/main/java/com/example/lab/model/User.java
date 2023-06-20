@@ -11,10 +11,12 @@ public class User {
     @ColumnInfo(name = "full_name")
     private String name;
     private String email;
+    private String uri;
 
-    public User(String name, String email) {
+    public User(String name, String email, String uri) {
         this.name = name;
         this.email = email;
+        this.uri = uri;
     }
 
     public String getName() {
@@ -31,5 +33,13 @@ public class User {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.lab.ui;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lab.R;
@@ -44,6 +46,10 @@ public class RentalItemListFragment extends Fragment {
         int userId = getArguments().getInt("userId");
         String username = getArguments().getString("username");
         String userEmail = getArguments().getString("userEmail");
+        if(getArguments().containsKey("image")){
+            String image = getArguments().getString("image");
+            ((ImageView)view.findViewById(R.id.profile_image)).setImageURI(Uri.parse(image));
+        }
 
         UserListViewModel viewModel = new ViewModelProvider(requireActivity()).get(UserListViewModel.class);
         RentalItemListViewModel rentalListViewModel = new ViewModelProvider(requireActivity()).get(RentalItemListViewModel.class);

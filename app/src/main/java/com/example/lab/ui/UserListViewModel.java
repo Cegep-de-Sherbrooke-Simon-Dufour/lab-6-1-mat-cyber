@@ -20,8 +20,8 @@ public class UserListViewModel extends ViewModel {
         this.repository = repository;
     }
 
-    public void addUser(User user){
-        repository.addUser(user);
+    public void addUser(String name, String email, String uri){
+        repository.addUser(new User(name, email, uri));
     }
 
     public void removeUser(User user){

@@ -46,11 +46,11 @@ public class ListUserFragment extends Fragment {
         userAdapter = new UserAdapter(new RecyclerCallback<User>() {
             @Override
             public void returnValue(User object) {
-                //viewModel.removeUser(object); old functionality
                 Bundle bundle = new Bundle();
                 bundle.putInt("userId", object.getUid());
                 bundle.putString("username", object.getName());
                 bundle.putString("userEmail", object.getEmail());
+                if(object.getUri() != null) bundle.putString("image", object.getUri());
                 Navigation.findNavController(view).navigate(R.id.action_listUserFragment_to_rentalItemListFragment, bundle);
             }
         });
